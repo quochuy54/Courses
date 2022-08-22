@@ -12,31 +12,44 @@ h1{
     width: 150px;
 }
 
+a:hover{
+    text-decoration: none;
+}
+
+.card-title{
+    width:100%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 //footer
 .footer {
     border-top: 2px solid #000;
     padding-top: 28px; 
     background-color: #343a40;
-  }
-  
-  ul{
+}
+
+ul{
     list-style: none;
     padding: 0;
-  }
-  
-  ul li a{
+}
+
+.footer__link{
     text-decoration: none;
     color: #9a9a9a;
-  }
-  
-  .footer__heading{
+}
+
+.footer__heading{
     color: #fff;
     font-size: 20px;
-  }
-  
-  .footer__item{
+}
+
+.footer__item{
     color: #a9b3bb;
-  }
+}
 
 .footer__coppyright-heading{
     font-size: 12px;
