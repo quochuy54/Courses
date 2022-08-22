@@ -7,7 +7,7 @@ const ObjectId = Schema.ObjectId;
 
 const Course = new Schema({
   name: {type: String, maxlength: 255},
-  description: {type: String, maxlength: 255},
+  description: {type: String, maxlength: 20000},
   image: {type: String, maxlength: 255},
   level: {type: String, maxlength: 255},
   videoId: {type: String},

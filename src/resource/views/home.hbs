@@ -11,8 +11,16 @@
                 <a href="/courses/{{this.slug}}" class="">
                     <h5 class="card-title">{{this.name}}</h5>
                 </a>
-                <p class="card-text">{{this.description}}</p>
-                <a href="#" class="btn btn-primary">Mua ngay</a>
+                <p style="  height: 50px;
+                            width:100%; 
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;" 
+                    class="card-text">{{this.description}}
+                </p>
+                <a href="/courses/{{this.slug}}" class="btn btn-primary">Xem ngay</a>
             </div>
             </div>
         </div>

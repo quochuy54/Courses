@@ -1,12 +1,23 @@
-const { MongooseToOjbect } = require('../../util/mongoose')
+const { MongooseToOjbect, MutiMongooseToOjbect } = require('../../util/mongoose')
 const Course = require('../Models/Course');
 class CoursesController{
 
     //[GET] /courses/:slug
     show(req, res, next){
-        Course.findOne({slug: req.params.slug})
-            .then(course => res.render('courses/course-detail', MongooseToOjbect(course)))
-            .catch(next)
+        const course = Course.findOne({slug: req.params.slug})
+        const courseList = Course.find();
+        Promise.all([course, courseList])
+        .then(
+            ([course, courseList]) => {
+                res.render('courses/course-detail', 
+                {
+                    course: MongooseToOjbect(course), 
+                    courseList: MutiMongooseToOjbect(courseList)
+                })
+            }
+        )
+        .catch(next)
+
     }
 
     //[GET] /courses/create

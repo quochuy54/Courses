@@ -24,11 +24,11 @@
             <th scope="col">Tên khóa học
               {{{sortable 'name' _sort}}}
             </th>
-            <th scope="col">Mô tả</th>
+            <th scope="col" style="width: 20%;">Mô tả</th>
             <th scope="col" style="width: 15%;">Trình độ
               {{{sortable 'level' _sort}}}
             </th>
-            <th scope="col">Ngày tạo
+            <th style="width: 20%" scope="col">Ngày tạo
               {{{sortable 'createdAt' _sort}}}
             </th>
             <th scope="col" colspan="2"></th>
@@ -44,7 +44,11 @@
           </td>
         <th scope="row">{{sum @index 1  }}</th>
         <td>{{this.name}}</td>
-        <td>{{this.description}}</td>
+        <td style="white-space: nowrap;
+                    overflow: hidden;
+                    max-width: 150px;
+                    text-overflow: ellipsis; ">{{this.description}}
+        </td>
         <td>{{this.level}}</td>
         <td>{{this.createdAt}}</td>
         <td><a href="/courses/{{this._id}}/edit" class="btn btn-warning">Chỉnh sửa</a></td>

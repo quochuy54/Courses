@@ -23,9 +23,9 @@
         <tr>
             <th scope="col" colspan="2">STT</th>
             <th scope="col">Tên khóa học {{{sortable 'name' _sort}}}</th>
-            <th scope="col">Mô tả</th>
-            <th scope="col">Trình độ {{{sortable 'level' _sort}}}</th>
-            <th scope="col">Ngày xóa {{{sortable 'deletedAt' _sort}}}</th>
+            <th style="width: 20%;" scope="col">Mô tả</th>
+            <th style="width: 15%;" scope="col">Trình độ {{{sortable 'level' _sort}}}</th>
+            <th style="width: 20%" scope="col">Ngày xóa {{{sortable 'deletedAt' _sort}}}</th>
             <th scope="col" colspan="2"></th>
         </tr>
     </thead>
@@ -39,7 +39,11 @@
         </td>
         <th scope="row">{{sum @index 1  }}</th>
         <td>{{this.name}}</td>
-        <td>{{this.description}}</td>
+        <td style='white-space: nowrap;
+                    overflow: hidden;
+                    max-width: 150px;
+                    text-overflow: ellipsis;'>{{this.description}}
+        </td>
         <td>{{this.level}}</td>
         <td>{{this.deletedAt}}</td>
         <td><a href="" class="btn btn-warning btn-restore" data-id="{{this._id}}">Khôi phục</a></td>
