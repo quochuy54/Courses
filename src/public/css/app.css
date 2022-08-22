@@ -9,6 +9,13 @@ h1 {
 .checkbox-select-all-options {
   width: 150px; }
 
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
 a:hover {
   text-decoration: none; }
 
