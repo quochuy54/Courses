@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const mongooseDelete = require('mongoose-delete');
 const slug = require('mongoose-slug-generator');
-
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 
 const Course = new Schema({
   name: {type: String, maxlength: 255},

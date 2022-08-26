@@ -1,17 +1,17 @@
 const express = require('express');
 const route = express.Router();
 const courseController = require('../app/Controllers/CourseController');
+const { redirectLogin } = require('../app/Middlewares/AuthenMiddleware');
 
-
-route.use('/create', courseController.create);
-route.use('/:id/edit', courseController.editCourses);
-route.post('/handle-form-action', courseController.handleFormAction);
-route.delete('/:id', courseController.deleteCourses);
-route.delete('/:id/force', courseController.forceDeleteCourses);
-route.put('/:id', courseController.updateCourses);
-route.patch('/:id/restore', courseController.restoreCourses);
-route.use('/store', courseController.store);
-route.use('/:slug', courseController.show);
+route.get('/create', redirectLogin, courseController.create);
+route.get('/:id/edit', redirectLogin, courseController.editCourses);
+route.post('/handle-form-action', redirectLogin, courseController.handleFormAction);
+route.delete('/:id', redirectLogin, courseController.deleteCourses);
+route.delete('/:id/force', redirectLogin, courseController.forceDeleteCourses);
+route.put('/:id', redirectLogin, courseController.updateCourses);
+route.patch('/:id/restore', redirectLogin, courseController.restoreCourses);
+route.post('/store', redirectLogin, courseController.store);
+route.get('/:slug', courseController.show);
 
 module.exports = route
 

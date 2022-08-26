@@ -4,8 +4,8 @@ const meController = require('../app/Controllers/MeController');
 
 
 
-route.use('/stored/courses', meController.storedCourses);
-route.use('/trash/courses', meController.trashCourses);
+route.get('/stored/courses', meController.storedCourses);
+route.get('/trash/courses', meController.trashCourses);
 
 module.exports = route
 

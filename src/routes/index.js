@@ -1,12 +1,14 @@
-newsRoute = require('./news');
-siteRoute = require('./site');
-courseRoute = require('./courses');
-meRoute = require('./me');
+const newsRoute = require('./news');
+const siteRoute = require('./site');
+const courseRoute = require('./courses');
+const meRoute = require('./me');
+const authenRoute = require('./authen');
+const authenMiddleware = require('../app/Middlewares/AuthenMiddleware');
 
 function route(app){
-    app.use('/news', newsRoute);
+    app.use('/authen', authenRoute);
     app.use('/courses', courseRoute);
-    app.use('/me', meRoute);
+    app.use('/me', authenMiddleware.redirectLogin, meRoute);
     app.use('/', siteRoute);
 }
 

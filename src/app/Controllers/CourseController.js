@@ -12,7 +12,7 @@ class CoursesController{
                 res.render('courses/course-detail', 
                 {
                     course: MongooseToOjbect(course), 
-                    courseList: MutiMongooseToOjbect(courseList)
+                    courseList: MutiMongooseToOjbect(courseList),
                 })
             }
         )

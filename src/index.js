@@ -1,12 +1,24 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const session = require('express-session');
 const handlebars  = require('express-handlebars');
 const methodOverride = require('method-override')
 const route = require('./routes/index');
-const { dirname } = require('path');
+require('dotenv/config');
 const app = express()
 const port = 3000
+
+//session to login
+app.use(session({
+  secret: process.env.SECRET_SESSION,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { 
+    secure: false,
+    maxAge: 3600000*2 // 2 hours
+  }
+}));
 
 const SortMiddleware = require('./app/Middlewares/SortMiddleware')
 
@@ -23,6 +35,14 @@ app.use(morgan('combined'))
 
 //Custom Middleware
 app.use(SortMiddleware)
+// Send user data to UI when logined
+app.use((req, res, next) => {
+  if(req.session.user){
+    let user = {email: req.session.user.email};
+    res.locals.user = user;
+  }
+  next();
+});
 
 // Template Engine
 app.engine('hbs', handlebars(

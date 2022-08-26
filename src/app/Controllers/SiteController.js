@@ -6,7 +6,7 @@ class SiteController{
     // [GET] home
     index(req, res, next){
         Course.find({})
-            .then(courses => res.render('home', {courses: MutiMongooseToOjbect(courses)}))  
+            .then(courses => res.render('home', {courses: MutiMongooseToOjbect(courses), user: req.session.user}))  
             .catch(next)           
     }
 
